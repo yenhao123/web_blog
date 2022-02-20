@@ -1,0 +1,26 @@
+Traceback (most recent call last):
+  File "/var/www/html/ccu_proj_manyPorts/api/main.py", line 73, in <module>
+    construct()
+  File "/var/www/html/ccu_proj_manyPorts/api/main.py", line 59, in construct
+    c.start()
+  File "/var/www/html/ccu_proj_manyPorts/api/cens.py", line 21, in start
+    self.keywordMethod(api)
+  File "/var/www/html/ccu_proj_manyPorts/api/cens.py", line 43, in keywordMethod
+    self.findDevice(api,"printer")
+  File "/var/www/html/ccu_proj_manyPorts/api/cens.py", line 54, in findDevice
+    for page in api.search(query,per_page=10,pages=-1):
+  File "/usr/local/lib/python3.8/dist-packages/censys/search/v2/api.py", line 169, in __next__
+    return self.__call__()
+  File "/usr/local/lib/python3.8/dist-packages/censys/search/v2/api.py", line 155, in __call__
+    payload = self.api._get(self.api.search_path, args)
+  File "/usr/local/lib/python3.8/dist-packages/censys/common/base.py", line 208, in _get
+    return self._make_call(self._session.get, endpoint, args)
+  File "/usr/local/lib/python3.8/dist-packages/censys/common/base.py", line 41, in _wrapper
+    return _impl()
+  File "/usr/local/lib/python3.8/dist-packages/backoff/_sync.py", line 94, in retry
+    ret = target(*args, **kwargs)
+  File "/usr/local/lib/python3.8/dist-packages/censys/common/base.py", line 39, in _impl
+    return method(self, *args, *kwargs)
+  File "/usr/local/lib/python3.8/dist-packages/censys/common/base.py", line 198, in _make_call
+    raise censys_exception(
+censys.common.exceptions.CensysUnauthorizedException: 401 (Unauthorized): You must authenticate with a valid API ID and secret.
