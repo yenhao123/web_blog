@@ -79,7 +79,7 @@
 				<?php 
 					$severname = "localhost";
 					$username = "root";
-					$password = "a407410040";
+					$password = "123456";
 					$database = "iot";
 					$port = 3306;
 					$table_id = $_GET["table_id"];

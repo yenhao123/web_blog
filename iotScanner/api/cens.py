@@ -31,7 +31,9 @@ class censys_engine():
     
     #write the result to file
     def writeToFile(self,content):
-        filename = "/var/www/html/ccu_proj_manyPorts/api/log/cens.log"
+        print(os.getcwd())
+        cur_path = os.path.dirname(__file__)
+        filename = cur_path + "/log/cens.log"
         f = open(filename,"a+")
         f.write(content)
         f.close()
@@ -58,7 +60,8 @@ class censys_engine():
                 ip = page[i].get("ip","None")
                 content = "ip:" + ip + "\n"
                 self.writeToFile(content)
-                filename = "/var/www/html/ccu_proj_manyPorts/api/log/cens_ip.log"
+                cur_path = os.path.dirname(__file__)
+                filename = cur_path + "/log/cens_ip.log"
                 f = open(filename,"a+")
                 f.write(content)
                 f.close()
@@ -66,12 +69,12 @@ class censys_engine():
                 page_count+=1
                 
                 ##find os
-                os = page[i].get("metadata.os","None")
-                if(os == None):
-                    os == "None"
-                content = "os:" + os + "\n";
+                metadata_os = page[i].get("metadata.os","None")
+                if(metadata_os == None):
+                    metadata_os == "None"
+                content = "os:" + metadata_os + "\n";
                 self.writeToFile(content)
-                print("os:"+os)
+                print("os:"+metadata_os)
                 
                 ##find productModel
                 productModel = page[i].get("metadata.description","None")

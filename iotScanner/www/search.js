@@ -11,7 +11,8 @@ function search(){
 	xhttp = new XMLHttpRequest();
 	xhttp.onreadystatechange = function() {
 		if( xhttp.readyState==4 && xhttp.status==200 ){
-  			res = JSON.parse(xhttp.responseText);
+			res = JSON.parse(xhttp.responseText);
+			//console.log(xhttp.responseText);
 			console.log(res);
 
 //			result = document.getElementById("result");

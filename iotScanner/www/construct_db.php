@@ -1,10 +1,8 @@
 <?php
 	$ip = $_GET['ip'];
-	//$ip = '140.112.40.0/24';
-	//update
-	echo shell_exec("sh /var/www/html/ccu_proj_manyPorts/api/log/rm_sh.sh");		
+	$ip = '140.123.84.0/24';
 	//running
-	$command = "python3 /var/www/html/ccu_proj_manyPorts/api/main.py 2>a.txt --ip ".$ip;
+	$command = "python3 ../api/main.py 2>err.txt --ip ".$ip;
 	echo shell_exec($command);
 	echo 'finish';
 ?>

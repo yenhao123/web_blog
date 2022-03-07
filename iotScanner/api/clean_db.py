@@ -8,7 +8,7 @@ for debug
 
 if __name__ == "__main__":
     
-    db = pymysql.connect(host="140.123.230.32",user="root",password="a407410040",db="iot",cursorclass=pymysql.cursors.DictCursor)
+    db = pymysql.connect(host="localhost",user="root",password="123456",db="iot",cursorclass=pymysql.cursors.DictCursor)
     cursor = db.cursor()
 
     if len(sys.argv)!=2:

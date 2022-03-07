@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 import sys
 import find_cve
+from clean_log import clean_log
 from shod import shodan_engine
 from cens import censys_engine
 from zoom import zoomeye_engine
@@ -67,6 +68,11 @@ def construct():
     3. 建立資料庫
     '''
     find_cve.summary()
+
+    '''
+    4. 刪除log file
+    '''
+    clean_log()
 
 if __name__ == "__main__":
    

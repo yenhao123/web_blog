@@ -37,9 +37,10 @@ findCveStart()
 1. 將cve、cvss等長時間掃描之資料填空
 '''
 def findCveStart():
-    filename = "/var/www/html/ccu_proj_manyPorts/api/log/cens_ip.log"
+    cur_path = os.path.dirname(__file__)
+    filename = cur_path + "/log/cens_ip.log"
     if os.path.exists(filename) == False :
-        print("no ip in these ips")
+        print("no such files")
         exit()
 
     f = open(filename,"r")
@@ -72,7 +73,8 @@ putipInfo()
 1. 將偵查引擎結果與cve等資料轉成dict型態(變數ip_infos)
 '''
 def putipInfo():
-    filename = "/var/www/html/ccu_proj_manyPorts/api/log/cens.log"
+    cur_path = os.path.dirname(__file__)
+    filename = cur_path + "/log/cens.log"
     f = open(filename,"r")
     cur = 0
     cve_cur = 0
@@ -109,11 +111,12 @@ db_output()
 2. 將ip_infos存入資料庫
 '''
 def db_output():
-    db = pymysql.connect(host="140.123.230.32",user="root",password="a407410040",db="iot",cursorclass=pymysql.cursors.DictCursor)
+    db = pymysql.connect(host="localhost",port=3306,user="root",password="123456",db="iot",cursorclass=pymysql.cursors.DictCursor)
     cursor = db.cursor()
     
     #create table ip、port、cve
-    f = open("/var/www/html/ccu_proj_manyPorts/api/table.txt","r") 
+    cur_path = os.path.dirname(__file__)
+    f = open(cur_path + "/table.txt","r") 
     lines = f.readlines()
     table_id = lines[0]
 
@@ -145,12 +148,16 @@ def db_output():
     cursor.execute(sql)
     f.close()
 
-    f = open("/var/www/html/ccu_proj_manyPorts/api/table.txt","w")
+    #更新api目錄 table id
+    cur_path = os.path.dirname(__file__)
+    f = open(cur_path + "/table.txt","w")
     next_id = int(table_id) + 1
     f.write(str(next_id))
     f.close()
 
-    f = open("/var/www/html/ccu_proj_manyPorts/www/table.txt","w")
+    #更新www目錄 table id
+    cur_path = os.path.dirname(__file__)
+    f = open(cur_path + "/../www/table.txt","w")
     next_id = int(table_id)
     f.write(str(next_id))
     f.close()
@@ -162,12 +169,12 @@ def db_output():
             continue
         ip_db.append(ip_infos[i]["ip"])
         ip = ip_infos[i]["ip"]
-        os = ip_infos[i]["os"]
+        metadata_os = ip_infos[i]["os"]
         devicetype = ip_infos[i]["device_type"]
         devicemodel = str(ip_infos[i]["device_model"])
         
         sql = "insert into ip_" + table_id +" (ip,os,product_model,device_type) values (%s,%s,%s,%s)"
-        cursor.execute(sql,(ip,os,devicemodel,devicetype))
+        cursor.execute(sql,(ip,metadata_os,devicemodel,devicetype))
         
         #cve table
         for j in range(len(ip_infos[i]["cve"])):
