@@ -1,7 +1,7 @@
 # WWW 
 
-* hw1 (HTML & CSS)
-* hw2 (JS & Json & DOM)
-* hw3 (Mysql & PHP & JS)
-* hw4 (JQuery & AJAX)
-* hw5 (Nodejs & firebase & socket io)
+* homepage (HTML & CSS)
+* calculator (JS & Json & DOM)
+* weather (Mysql & PHP & JS)
+* soc_media (JQuery & AJAX)
+* friend_chat (Nodejs & firebase & socket io)

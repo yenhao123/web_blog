@@ -8,8 +8,8 @@ class censys_engine():
 
     #set up the parameter of Censys API
     def __init__(self,api_info):
-        #self.id = api_info['id']
-        #self.secret = api_info['secret']
+        self.id = api_info['id']
+        self.secret = api_info['secret']
         self.ip = api_info['ip']
         self.count = api_info['count']
     
@@ -17,7 +17,8 @@ class censys_engine():
     def start(self):
         print("-----------------------")
         print("Start Censys Process!!!")
-        api = CensysHosts()
+        #api = CensysHosts(api_id="dc2dad4b-29e5-4328-b2f6-cc595a4ded7d",api_secret="JVJ1Bf0qsoGnrVovDknaCgsLLL8bqUey")
+        api = CensysHosts(api_id=self.id,api_secret=self.secret)
         self.keywordMethod(api)
 
     #get the result from API and print it
@@ -31,7 +32,6 @@ class censys_engine():
     
     #write the result to file
     def writeToFile(self,content):
-        print(os.getcwd())
         cur_path = os.path.dirname(__file__)
         filename = cur_path + "/log/cens.log"
         f = open(filename,"a+")

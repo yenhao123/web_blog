@@ -51,8 +51,8 @@ def construct():
     1. 偵查引擎 
     '''
     api = dict()
-    #api['id'] = "aabc85e8-b6b9-4692-921a-ed81d1b0a8fc"
-    #api['secret'] = "66QsgUIAnBviFrFSPt8jMWd99aWbwtiQ"
+    api['id'] = "dc2dad4b-29e5-4328-b2f6-cc595a4ded7d"
+    api['secret'] = "JVJ1Bf0qsoGnrVovDknaCgsLLL8bqUey"
     api['ip'] = ip
     api['count'] = count
     

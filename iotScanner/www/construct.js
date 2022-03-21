@@ -11,19 +11,18 @@ function loadDoc(){
 		var xmlhttp = new XMLHttpRequest();
 		xmlhttp.onreadystatechange = function(){
 			if(xmlhttp.readyState==4 && xmlhttp.status==200){
+				console.log(xmlhttp.responseText);
 				var xhttp = new XMLHttpRequest();
 				xhttp.open("GET","table.txt",false);
 				xhttp.send();
 
-				console.log(xhttp.responseText,'ip',str);
+				console.log('\n',xhttp.responseText,'ip',str);
 				table_id = xhttp.responseText;
-				//location.href = "home.php?table_id="+table_id+"&ip="+str;
+				location.href = "home.php?table_id="+table_id+"&ip="+str;
 			}
 		}
-		xmlhttp.open("GET","construct_db.php?ip=" + str,false);
+		xmlhttp.open("GET","construct_db.php?ip=" + str,true);
 		xmlhttp.send();
-		console.log(xmlhttp.responseText);
-		alert(xmlhttp.responseText);
 	}	
 	
 }
