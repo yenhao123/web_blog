@@ -3,11 +3,6 @@
 ![2022-03-07 15-42-07 的螢幕擷圖](https://user-images.githubusercontent.com/46972327/156988655-9a62abe3-8ece-40e6-a63f-7d7993f6932e.png)
 ![2022-03-07 16-13-42 的螢幕擷圖](https://user-images.githubusercontent.com/46972327/156992879-7a07b3a9-65b8-4a2c-ad81-546bc1a54728.png)
 
-## Construct Pages
-![2022-03-07 16-12-48 的螢幕擷圖](https://user-images.githubusercontent.com/46972327/156992765-22d94db6-3e97-4021-9a56-68b2be0f11c8.png)
-
-
-
 ## software info
 ### Server
 OS : Ubuntu 20.04.2 LTS
